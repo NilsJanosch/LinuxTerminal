@@ -3,6 +3,7 @@ package xyz.truthy.dev;
 import xyz.truthy.dev.command.Command;
 import xyz.truthy.dev.command.CommandManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class LinuxTerminal {
     private boolean active;
     public static CommandManager commandManager = new CommandManager();
+
     public void start() {
         active = true;
         Ascii.printAscii("Linux");
@@ -19,15 +21,12 @@ public class LinuxTerminal {
             String usercom = cmdinput.nextLine();
 
             String[] parameter = usercom.split(" ");
-            List<String> parameterTrim = Arrays.stream(parameter).toList();
+            List<String> parameterTrim = new ArrayList<>(Arrays.stream(parameter).toList());
+            parameterTrim.remove(0);
             for (Command command : commandManager.getCommands()) {
-                if (parameterTrim.get(0).equals(command.getCommand())){
+                if (command.getCommand().equals(parameter[0])) {
+                    command.setParameters(parameterTrim);
                     command.run();
-                    if (parameterTrim.size() > 1) {
-                        if (parameterTrim.size() > 1) {
-                            command.setParameters(parameterTrim);
-                        }
-                    }
                 }
             }
         }
