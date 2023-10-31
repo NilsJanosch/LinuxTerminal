@@ -1,6 +1,6 @@
 package xyz.truthy.dev.command;
 
-import xyz.truthy.dev.command.command.Example;
+import xyz.truthy.dev.command.command.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,11 @@ public class CommandManager {
     }
 
     private void registerCommands() {
-        registerCommand(new Example());
+        registerCommand(new Exit());
+        registerCommand(new Help());
+        registerCommand(new Pwd());
+        registerCommand(new Cd());
+        registerCommand(new PrintAscii());
     }
     private void registerCommand(Command command) {
         commands.add(command);
