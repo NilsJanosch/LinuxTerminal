@@ -8,7 +8,7 @@ public class Cd extends Command {
 
     @Override
     public void run() {
-        if (getParameters().size() > 1){
+        if (getParameters().size() != 1){
             if (getParameters().get(1).equals("..")){
                 System.out.println("..");
             }

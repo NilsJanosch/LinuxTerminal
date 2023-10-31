@@ -3,6 +3,9 @@ package xyz.truthy.dev.command.command;
 import xyz.truthy.dev.Ascii;
 import xyz.truthy.dev.command.Command;
 import xyz.truthy.dev.util.Console;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class PrintAscii extends Command {
@@ -13,8 +16,9 @@ public class PrintAscii extends Command {
         System.out.print("> ");
         String ascinp = asciiinput.nextLine();
         String[] ascinpp = ascinp.split(" ");
-        for (int i = 0; i < ascinpp.length; i ++) {
-            Ascii.printAscii(ascinpp[i]);
+        List<String> asciinp = Arrays.stream(ascinpp).toList();
+        for (String s : asciinp) {
+            Ascii.printAscii(s);
         }
     }
 }

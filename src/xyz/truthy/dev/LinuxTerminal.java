@@ -24,7 +24,7 @@ public class LinuxTerminal {
                 if (parameterTrim.get(0).equals(command.getCommand())){
                     command.run();
                     if (parameterTrim.size() > 1) {
-                        if (usercom.split(" ")[1] != null) {
+                        if (parameterTrim.size() > 1) {
                             command.setParameters(parameterTrim);
                         }
                     }
