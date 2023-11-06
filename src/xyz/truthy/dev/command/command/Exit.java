@@ -9,6 +9,6 @@ public class Exit extends Command {
 
     @Override
     public void run() {
-        System.exit(130);
+        System.exit(0);
     }
 }
