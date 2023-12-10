@@ -14,7 +14,7 @@ public class Cd extends Command {
             if (getParameters().get(1).equals("..")) {
                 for (int i = 0; i < path.length; i ++) {
                     System.out.println("..");
-                    System.setProperty("user.dir", "/tmp");
+                    System.setProperty("user.dir", "C:\\");
                 }
             }
         }
